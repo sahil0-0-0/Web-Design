@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>Dummy website</title>
+        <style>
+                        
+            body {
+                background-color: rgb(114, 184, 234) ;
+            }
+
+            #circle {
+                height: 140vh ;
+                width: 140vh ;
+                border: solid 15px white ;
+                border-radius: 50% ;
+                position: absolute ;
+                top: -500px ;
+                left: -400px ;
+                background-color: rgb(233, 241, 65) ;
+            }
+
+            #btncontainer {
+            height: 350px ;
+            width: 500px ;
+            margin-left: 60% ;
+            margin-top: 5% ;
+            justify-content: center ;
+            align-items: center ;
+            border: solid 4px white ;
+            border-radius: 30px ;
+            background-color: rgba(255, 255, 255, 0.249)  ;
+            padding-top: 5% ;
+            }
+
+            .btn {
+                margin: 0 5% 0 5% ;
+                height: 75px ;
+                width: 450px ;
+                border: solid 4px rgb(114, 184, 234) ;
+                border-radius: 20px ;
+                background-color: whitesmoke ;
+                font-size: 30px ;
+                font-weight: bold ;
+            }
+
+            #img1 , #img2 , #img3 , #img4 {
+                position: absolute ;
+                height: 360px ;
+                width: 360px ;
+                border-radius: 100% ;
+            }
+
+            #img2 {
+            margin-top: 65% ;
+            }
+
+            #img3 {
+                margin-left: 68% ;
+            }
+
+            #img4 {
+                margin-left: 70%  ;
+                margin-top: 70% ;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="circle">
+            <img id="img1" src="https://i.pinimg.com/564x/cb/df/f3/cbdff39a86ba8f0920c2da84bec2f232.jpg" alt="bread" >
+            <img id="img2" src="https://i.pinimg.com/564x/50/0a/49/500a4983d3d45d39d9ecf5aa41aae8cf.jpg" alt="Pizza" >
+            <img id="img3" src="https://i.pinimg.com/564x/a0/83/a5/a083a5b19cdbc818dedafe8a8257c920.jpg" alt="noodles" >
+            <img id="img4" src="https://i.pinimg.com/564x/03/18/ed/0318ed12139d8cdac4eede70a10b82e4.jpg" alt="pasta" >
+        </div>
+        
+
+        <div id="btncontainer">
+            <button class="btn btn1">Noodles</button>
+            <button class="btn btn2">Bread</button>
+            <button class="btn btn3">Pizza</button>
+            <button class="btn btn4">Pasta</button>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+                $(".btn1").click(function(){
+                     $("#circle").css({
+                        "transform" : "rotateZ(90deg)" ,
+                        "transition-duration" : "2s" 
+                     });
+                });
+                $(".btn2").click(function(){
+                     $("#circle").css({
+                        "transform" : "rotateZ(180deg)" ,
+                        "transition-duration" : "2s" 
+                     });
+                });
+                $(".btn3").click(function(){
+                     $("#circle").css({
+                        "transform" : "rotateZ(270deg)" ,
+                        "transition-duration" : "2s" 
+                     });
+                });
+                $(".btn4").click(function(){
+                     $("#circle").css({
+                        "transform" : "rotateZ(360deg)" ,
+                        "transition-duration" : "2s" 
+                     });
+                });
+              
+            });
+        </script>
+    </body>
+</html>
