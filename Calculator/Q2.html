@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@700&family=Sora:wght@800&display=swap" rel="stylesheet">
+        <title>Calculator</title>
+        <style>
+            body{
+                display: flex ;
+                justify-content: center ;
+                align-items: center ;
+                overflow: hidden ;
+            }
+            #container {
+                height: 430px ;
+                width: 300px ;
+                border: solid 2px black ;
+                border-radius: 7px ;
+                background: transparent ;
+                backdrop-filter: blur(5px);
+                box-shadow: 5px 5px 5px rgb(0, 0, 0) ;
+            }
+            .inp {
+                height: 50px ;
+                width: 90% ;
+                margin: 8% 5% 5% 5% ;
+                border: solid 2px black ;
+                border-radius: 3px ;
+                font-size: 35px ;
+                font-weight: bold ;
+                text-align: right ;
+                padding-right: 5% ;
+                box-shadow: inset 2px 2px 5px rgb(0, 0, 0) ;
+                font-family: 'Mukta', sans-serif;
+                font-family: 'Sora', sans-serif;
+                background: transparent ;
+                backdrop-filter: blur(5px);
+            }
+            .cal {
+                height: 50px ;
+                width: 100px ;
+                font-size: 35px ;
+                margin: 7% 0 0 11% ;
+                font-weight: bold ;
+                border: solid 2px black ;
+                border-radius: 3px ;
+                transition: all ease 0.2s ;
+                box-shadow: 2px 2px 5px rgb(0, 0, 0) ;
+                background: transparent ;
+                backdrop-filter: blur(5px);
+            }
+          
+            #ans {
+                height: 70px ;
+                width: 268px ;
+                border: solid 2px black ;
+                margin: 5% 5% 0 5.5% ;
+                border-radius: 3px ;
+                font-size: 35px ;
+                font-weight: 900 ;
+                text-align: right ;
+                padding-right: 5% ;
+            }
+            .cal:active {
+                scale: 0.9 ;
+                box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.501) ;
+            }
+            .cal:hover {
+                background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+            }
+            .bg {
+                height: 400px ;
+                width: 400px ;
+                border-radius: 50% ;
+                position:  absolute  ;
+                margin: -15% 0 0 -30% ;
+                background: rgb(63,94,251);
+                background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+                animation: anim 3s linear infinite;
+            }   
+            #cir2 {
+                margin: 15% 0 0 30% ;
+                background-image: linear-gradient( 58.2deg,  rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7% );
+            }   
+            @keyframes anim {
+                from {
+                    transform: rotateZ(0deg);
+                }
+                to {
+                    transform: rotateZ(360deg);
+                }
+            }     
+        </style>
+    </head>
+    <body>
+        <div class="bg" id="cir1" ></div>
+        <div class="bg" id="cir2" ></div>
+        <div id="container">
+            <input type="text" class="inp" id="n1" placeholder="0" autocomplete="off" >
+            <br>
+            <input type="text" class="inp" id="n2" placeholder="0" autocomplete="off" >
+            <br>
+            <input type="text" class="inp" id="ans" readonly placeholder="Answer" >
+            <br>
+                <div id="btn">
+                    <button id="add" class="cal" >+</button>
+                    <button id="sub" class="cal" >-</button>
+                    <br>
+                    <button id="mul" class="cal" >*</button>
+                    <button id="div" class="cal" >/</button>
+                </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){            
+                $("#add").click(function(){
+                    var num1 = parseInt($("#n1").val()) ;
+                    var num2 = parseInt($("#n2").val()) ; 
+                    $("#ans").val(num1+num2) ;                       
+                });
+                $("#sub").click(function(){
+                    var num1 = parseInt($("#n1").val()) ;
+                    var num2 = parseInt($("#n2").val()) ; 
+                    $("#ans").val(num1-num2) ;                       
+                });
+                $("#mul").click(function(){
+                    var num1 = parseInt($("#n1").val()) ;
+                    var num2 = parseInt($("#n2").val()) ; 
+                    $("#ans").val(num1*num2) ;                       
+                });
+                $("#div").click(function(){
+                    var num1 = parseInt($("#n1").val()) ;
+                    var num2 = parseInt($("#n2").val()) ; 
+                    $("#ans").val(num1/num2) ;                       
+                });
+            });
+        </script>
+    </body>
+</html>
