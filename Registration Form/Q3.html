@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <title>Registration Form</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <style>
+            body {
+                margin: 0 ;
+                display: flex ;
+                justify-content: center ;
+                align-items: center;
+                font-family: 'Giloray-Bold' , sans-serif ;
+            }
+            #main {
+                height: 97vh;
+                width: 80vw;
+                border: solid royalblue 2px ;
+                border-radius: 15px;
+                display: flex ;
+                overflow: hidden ;
+            }
+            #left {
+                height: 100% ;
+                width: 40% ;
+                background-color: royalblue ;
+                overflow: hidden ;
+                position:  relative ;
+            }
+            #right {
+                height: 100% ;
+                width: 60% ;
+            }
+            #left .bgtxt {
+                color: white ;
+                font-size: 120px ;
+                padding: 2% ;             
+            }
+            #left .txt {
+                color: white ;
+                font-size: 120px ;
+                padding: 2% ;
+                -webkit-text-fill-color: transparent ;
+                -webkit-text-stroke-width: 2px;
+                position:  relative ;
+                margin-top: -105%;
+            }
+            img {
+                height: 100% ;
+                width: 100% ;
+                position:  absolute ;
+            }
+            form h1 {
+                font-size: 50px ;
+                text-transform: uppercase ;
+                color: royalblue ;
+                display: flex ;
+                justify-content: center ;
+            }
+           .info {
+            height: 50px ;
+            width: 600px ;
+            margin-left: 8% ;
+            font-size: 20px;
+            color: black ;
+            padding-left: 6% ;
+            font-weight: bold ;
+            border: solid 2px royalblue ;
+            border-top-color: white ;
+            border-left-color: white ;
+            border-right-color: white ;
+           }
+           :focus {
+            outline: none ;
+           }
+           button {
+            height: 60px ;
+            width: 400px ;
+            background-color: royalblue ;
+            border: solid 1px royalblue ;
+            border-radius: 15px ;
+            font-size: 30px ;
+            font-weight: bold ;
+            color: white ;
+            margin: 4% 0 0 26% ;
+           }
+           #fname , #mail , #number , #pin , #pass , #confpass {
+            position:  absolute ;
+            margin: 0.5% 0 0 6.5% ;
+            color: red ;
+           }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="left">
+                <img src="images\regbg.png">
+                <h1 class="bgtxt">We promise comfort</h1>
+                <h1 class="txt">We promise comfort</h1>
+            </div>
+            <div id="right">
+                <form>
+                    <h1>Registration</h1>
+                    <input type="text" id="inpname" class="info" placeholder="Full Name"><br>
+                    <label id="fname"></label>
+                    <input type="text" id="inpmail" style="margin-top: 5% ;" class="info" placeholder="Em@il ID"><br>
+                    <label id="mail"></label>
+                    <input type="text" id="inpnumber" style="margin-top: 5% ;" class="info" placeholder="Phone"><br>
+                    <label id="number"></label>
+                    <input type="text" id="inppin" style="margin-top: 5% ;" class="info" placeholder="Pincode"><br>
+                    <label id="pin"></label>
+                    <input type="password" id="inppass" style="margin-top: 5% ;" class="info" placeholder="Password"><br>
+                    <label id="pass"></label>
+                    <input type="password" id="inpconfpass" style="margin-top: 5% ;" class="info" placeholder="Comfirm Password"><br>
+                    <label id="confpass"></label>
+                    <button type="reset" id="btn">Sign up</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+               $("#btn").click(function(){
+                    let name = $("#inpname").val() ;
+                    let imail = $("#inpmail").val() ;
+                    let phno = $("#inpnumber").val() ;
+                    let pcode = $("#inppin").val() ;
+                    let p1 = $("#inppass").val() ;
+                    let p2 = $("#inpconfpass").val() ;
+
+                    let v1 = imail.indexOf("@") ;
+                    let v2 = imail.lastIndexOf(".") ;
+
+                        if ( name == "" || name == isNaN ) {
+                            $("#fname").text("Kindly Enter Your Name !") ;
+                        } else {
+                            $("#fname").text("") ;
+                        }
+
+                        if ( imail == "" || imail == isNaN ) {
+                            $("#mail").text("Kindly Enter Your Mail Id !") ;
+                        } else if ( v1 < 1 || ( v2 - v1 < 2 )) {
+                            $("#mail").text("Kindly Correct Email ID !") ;
+                        } else {
+                            $("#mail").text("") ;
+                        }
+
+                        if ( phno == "" || phno == isNaN ) {
+                            $("#number").text("Kindly Enter Your Phone Number !") ;
+                        } else if ( phno.length < 10 || phno.length > 10 ) {
+                            $("#number").text("Enter Valid Phone Number !") ;
+                        } else {
+                            $("#number").text("") ;
+                        }
+
+                        if ( pcode == "" || pcode == isNaN ) {
+                            $("#pin").text("Kindly Enter Pincode !") ;
+                        } else if ( pcode.length < 6 || pcode.length > 6 ) {
+                            $("#pin").text("Enter Valid Pincode !") ;
+                        } else {
+                            $("#pin").text("") ;
+                        }
+
+                        if ( p1 == "" || p1 == isNaN ) {
+                            $("#pass").text("Kindly Enter Password !") ;
+                        } else if ( p1.length < 8 || p1.length > 8 ) {
+                            $("#pass").text("Password Must Be 8 Character !") ;
+                        } else {
+                            $("#pass").text("") ;
+                        }
+
+                        if ( p2 == "" || p2 == isNaN ) {
+                            $("#confpass").text("Kindly Enter Password !") ;
+                        } else if ( p2.length < 8 || p2.length > 8 ) {
+                            $("#pass").text("Password Must Be 8 Character !") ;
+                        } else if ( p1 != p2 ) {
+                            $("#confpass").text("Passwords Did Not Match !") ;
+                        } else {
+                            $("#confpass").text("") ;
+                        }
+
+                });
+            });
+        </script>
+    </body>
+</html>
