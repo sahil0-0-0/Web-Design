@@ -87,6 +87,16 @@
             margin: 0.5% 0 0 6.5% ;
             color: red ;
            }
+           .focusblur {
+            border: solid 3px royalblue ;
+            border-radius: 15px ;
+           }
+           #inpname:hover , #inpmail:hover , #inpnumber:hover , #inppin:hover , #inppass:hover , #inpconfpass:hover {
+            border: solid 4px royalblue ;
+            border-top-color: white ;
+            border-left-color: white ;
+            border-right-color: white ;
+           }
         </style>
     </head>
     <body>
@@ -99,17 +109,17 @@
             <div id="right">
                 <form>
                     <h1>Registration</h1>
-                    <input type="text" id="inpname" class="info" placeholder="Full Name"><br>
+                    <input autocomplete="off" type="text" id="inpname" class="info" placeholder="Full Name"><br>
                     <label id="fname"></label>
-                    <input type="text" id="inpmail" style="margin-top: 5% ;" class="info" placeholder="Em@il ID"><br>
+                    <input autocomplete="off" type="text" id="inpmail" style="margin-top: 5% ;" class="info" placeholder="Em@il ID"><br>
                     <label id="mail"></label>
-                    <input type="text" id="inpnumber" style="margin-top: 5% ;" class="info" placeholder="Phone"><br>
+                    <input autocomplete="off" type="text" id="inpnumber" style="margin-top: 5% ;" class="info" placeholder="Phone"><br>
                     <label id="number"></label>
-                    <input type="text" id="inppin" style="margin-top: 5% ;" class="info" placeholder="Pincode"><br>
+                    <input autocomplete="off" type="text" id="inppin" style="margin-top: 5% ;" class="info" placeholder="Pincode"><br>
                     <label id="pin"></label>
-                    <input type="password" id="inppass" style="margin-top: 5% ;" class="info" placeholder="Password"><br>
+                    <input autocomplete="off" type="password" id="inppass" style="margin-top: 5% ;" class="info" placeholder="Password"><br>
                     <label id="pass"></label>
-                    <input type="password" id="inpconfpass" style="margin-top: 5% ;" class="info" placeholder="Comfirm Password"><br>
+                    <input autocomplete="off" type="password" id="inpconfpass" style="margin-top: 5% ;" class="info" placeholder="Comfirm Password"><br>
                     <label id="confpass"></label>
                     <button type="reset" id="btn">Sign up</button>
                 </form>
@@ -177,6 +187,11 @@
                         }
 
                 });
+
+                $("#inpname , #inpmail , #inpnumber , #inppin , #inppass , #inpconfpass").on("focus blur", function(){
+                    $(this).toggleClass("focusblur");
+                });        
+
             });
         </script>
     </body>
